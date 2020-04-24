@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1728211683680655863}
   - component: {fileID: 1728211683680655862}
   - component: {fileID: 1728211683680655817}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Hazard
-  m_TagString: Untagged
+  m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1728211684489640475}
   - component: {fileID: 1728211684489640474}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}

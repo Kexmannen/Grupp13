@@ -81,7 +81,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    private IEnumerator spawnObstacles() //kodupprepning, fråga på handledning om det går att göra på nåt bättre sätt
+    private IEnumerator spawnObstacles() //kodupprepning, fråga på handledning om det går att göra på nåt bättre sätt (egen spawn-klass?)
     {
         yield return new WaitForSeconds(startWait);
         while (true)
@@ -135,5 +135,22 @@ public class GameController : MonoBehaviour
             Destroy(player);
             gameOver();
         } 
+    }
+
+    public void gainHealthpoint()
+    {
+        if (healthCount >= 3)
+        {
+            return;
+        }else if (healthCount == 2)
+        {
+            healthCount++;
+            firstHealthPoint.enabled = true;
+        }
+        else
+        {
+            healthCount++;
+            secondHealthPoint.enabled = true;
+        }
     }
 }

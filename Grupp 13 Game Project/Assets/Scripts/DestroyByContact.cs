@@ -31,10 +31,20 @@ public class DestroyByContact : MonoBehaviour
         {
             //instansiera explosion "på" player, se Boundaries, Hazards and Enemies > 3. Explosions
             gameController.loseHealthpoint();
+            Destroy(gameObject);
         }
-        gameController.addScore(scoreValue);
-        //Destroy(other.gameObject);
-        Destroy(gameObject);
+        if(tag == "Hazard")
+        {
+            gameController.addScore(scoreValue);
+            Destroy(gameObject);
+        }
+        if(tag == "Obstacle" && other.tag == "Bolts")
+        {
+            Destroy(other.gameObject);
+        }
+
     } 
 }
 
+//fråga angående kollision mellan obstacles och hazards
+//fråga om canvas (overlay vs camera)
