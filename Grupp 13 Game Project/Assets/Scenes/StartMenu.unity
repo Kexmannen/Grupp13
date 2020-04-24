@@ -153,7 +153,11 @@ RectTransform:
   - {fileID: 794278708}
   - {fileID: 496092952}
   m_Father: {fileID: 2102452463}
+<<<<<<< HEAD
   m_RootOrder: 3
+=======
+  m_RootOrder: 2
+>>>>>>> master
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25100002, y: 0.35500002}
   m_AnchorMax: {x: 0.78785187, y: 0.7473959}
@@ -351,7 +355,11 @@ RectTransform:
   - {fileID: 2084565342}
   - {fileID: 2036887339}
   m_Father: {fileID: 2102452463}
+<<<<<<< HEAD
   m_RootOrder: 2
+=======
+  m_RootOrder: 1
+>>>>>>> master
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -370,6 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd80376655b57e4abf50427c1d081b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   blackFade: {fileID: 1118758661}
   anim: {fileID: 0}
   source: {fileID: 0}
@@ -502,6 +511,8 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+=======
+>>>>>>> master
 --- !u!1 &437008526
 GameObject:
   m_ObjectHideFlags: 0
@@ -1168,6 +1179,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
 --- !u!1 &1118758659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,6 +1253,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1118758659}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> master
 --- !u!1 &1127879560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1379,7 +1393,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: 143201ee213171645b3dce7bb0222bb1, type: 3}
+=======
+  m_Sprite: {fileID: 21300000, guid: 9c493f64d592ee147b0054d779467daa, type: 3}
+>>>>>>> master
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2239,6 +2257,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1718614400}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!1 &1762429685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2343,6 +2362,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2003568778}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> master
 --- !u!1 &2036887338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2917,10 +2938,15 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1135262601}
+<<<<<<< HEAD
   - {fileID: 2003568779}
   - {fileID: 387842271}
   - {fileID: 87812876}
   - {fileID: 1118758660}
+=======
+  - {fileID: 387842271}
+  - {fileID: 87812876}
+>>>>>>> master
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
