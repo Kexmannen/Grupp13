@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class DestroyByContact : MonoBehaviour
 {
+    public int scoreValue;
+
+    private GameController gameController;
+
+    void Start()
+    {
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Boundary")
@@ -11,8 +27,14 @@ public class DestroyByContact : MonoBehaviour
             return;
         }
         //Instansiera explosion "på" hazard
-        Destroy(other.gameObject);
+        if(other.tag == "Player")
+        {
+            //instansiera explosion "på" player, se Boundaries, Hazards and Enemies > 3. Explosions
+            gameController.loseHealthpoint();
+        }
+        gameController.addScore(scoreValue);
+        //Destroy(other.gameObject);
         Destroy(gameObject);
-    } //if other comparetag == player {instansiera explosion "på" player} se Boundaries, Hazards and Enemies > 3. Explosions
+    } 
 }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Boundary
 {
-    public float xMin, xMax, yMin, yMax;
+    public float xMin, xMax;
 }
 
 public class PlayerController : MonoBehaviour
@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+           // audio.Play(); //shooting audio
         }
         
 
@@ -40,16 +41,10 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, moveVertical, 0.0f);
+        Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rigidbody.velocity = movement * speed;
-        rigidbody.position = new Vector3
-            (
-                Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax),
-                Mathf.Clamp(rigidbody.position.y, boundary.yMin, boundary.yMax),
-                0.0f
-            );
+        rigidbody.position = new Vector3(Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax), 0.0f, 0.0f);
         //rigidbody.rotation = Quaternion.Euler(0.0f, rigidbody.velocity.x * -tilt, 0.0f); (Tilta skeppet lite åt sidorna vid rörelse. Fixa senare, detta funkar ej pga vi har 2D)
 
     }
