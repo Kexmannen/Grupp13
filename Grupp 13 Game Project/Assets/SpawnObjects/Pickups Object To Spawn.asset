@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Pickups Object To Spawn
+  m_EditorClassIdentifier: Assembly-CSharp::ObjectToSpawn
+  obj:
+  - {fileID: 4300943242893918440, guid: 07906099b600ecd42a8f48ccb01e6d12, type: 3}
+  - {fileID: 5766619442441972582, guid: aff40c94698181a4991e413bb94c4d4f, type: 3}
+  spawnValues: {x: 2, y: 9, z: 0}
+  startWait: 20
+  count: 20
+  spawnWait: 20
+  waveWait: 1
