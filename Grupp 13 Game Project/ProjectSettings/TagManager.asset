@@ -8,6 +8,8 @@ TagManager:
   - Boundary
   - Hazard
   - Obstacle
+  - Spawner
+  - Pickup
   layers:
   - Default
   - TransparentFX

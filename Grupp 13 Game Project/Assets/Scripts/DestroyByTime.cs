@@ -11,5 +11,5 @@ public class DestroyByTime : MonoBehaviour
         Destroy(gameObject, lifeTime);
     }
 
-    //Use this script to destroy explosions
+    //Use this script to destroy explosion-effects
 }

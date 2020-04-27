@@ -9,42 +9,27 @@ public class GameController : MonoBehaviour
     public GameObject obstacle;
     public GameObject hazard;
     public GameObject player;
-    public Vector3 spawnValues;
-    public int hazardCount;
-    public int obstacleCount;
-    public float startWait;
-    public float hazardSpawnWait;
-    public float hazardWaveWait;
-    public float obstacleSpawnWait;
-    public float obstacleWaveWait;
-    
 
     public Text restartText;
     public Text gameOverText;
     public Text scoreText;
-    public Image firstHealthPoint;
-    public Image secondHealthPoint;
-    public Image thirdHealthPoint;
+    public Image[] uiHealthpoints;
 
     private int score;
-    private int healthCount;
     private bool gameIsOver;
     private bool restart;
-
     
 
     void Start()
     {
-        healthCount = 3;
         gameIsOver = false;
         restart = false;
-        restartText.text = "";   //använda setActive istället?
-        gameOverText.text = ""; //använda setActive istället?
+        restartText.text = "";   //använda setActive istället? - Ja
+        gameOverText.text = ""; //använda setActive istället? - Ja
         score = 0;
         updateScore();
-        StartCoroutine( spawnHazards());
-        StartCoroutine(spawnObstacles());
     }
+
 
     void Update()
     {
@@ -56,52 +41,13 @@ public class GameController : MonoBehaviour
                 SceneManager.LoadScene(currentScene.name);
             }
         }
-    }
-
-    private IEnumerator spawnHazards()
-    {
-        yield return new WaitForSeconds(startWait);
-        while (true)
+        if (gameIsOver)
         {
-            for (int i = 0; i < hazardCount; i++)
-            {
-
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(hazard, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(hazardSpawnWait);
-            }
-            yield return new WaitForSeconds(hazardWaveWait);
-            if (gameIsOver)
-            {
-                restartText.text = "Press 'R' for Restart";
-                restart = true;
-                break;
-            }
+            restartText.text = "Press 'R' for Restart";
+            restart = true;
         }
     }
 
-    private IEnumerator spawnObstacles() //kodupprepning, fråga på handledning om det går att göra på nåt bättre sätt (egen spawn-klass?)
-    {
-        yield return new WaitForSeconds(startWait);
-        while (true)
-        {
-            for (int i = 0; i < obstacleCount; i++)
-            {
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                Instantiate(obstacle, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(obstacleSpawnWait);
-            }
-            yield return new WaitForSeconds(obstacleWaveWait);
-            if (gameIsOver)
-            {
-                restartText.text = "Press 'R' for Restart";
-                restart = true;
-                break;
-            }
-        }
-    }
 
     public void addScore(int newScoreValue)
     {
@@ -113,44 +59,22 @@ public class GameController : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
-    private void gameOver()
+    public void gameOver()
     {
         gameOverText.text = "Game Over";
         gameIsOver = true;
     }
-
-    public void loseHealthpoint() //fråga på handledning om det finns en "snyggare"/bättre lösning på detta
+    public void updateUiHealth(int currentHp)
     {
-        if(healthCount >= 3)
+        foreach (var i in uiHealthpoints)  //for each variable i in uiHealthpoints array, if the index is lesser than currentHP, enable image. Otherwise, disable it
         {
-            healthCount--;
-            firstHealthPoint.enabled = false;
-        }else if(healthCount == 2)
-        {
-            healthCount--;
-            secondHealthPoint.enabled = false;
-        }else 
-        {
-            thirdHealthPoint.enabled = false;
-            Destroy(player);
-            gameOver();
-        } 
-    }
-
-    public void gainHealthpoint()
-    {
-        if (healthCount >= 3)
-        {
-            return;
-        }else if (healthCount == 2)
-        {
-            healthCount++;
-            firstHealthPoint.enabled = true;
-        }
-        else
-        {
-            healthCount++;
-            secondHealthPoint.enabled = true;
+           if(System.Array.IndexOf(uiHealthpoints, i) < currentHp) //This works, the index -1 < currentHp doesnt. Why?
+           {
+                i.enabled = true;
+           }else
+           {
+                i.enabled = false; 
+           }
         }
     }
-}
+} 

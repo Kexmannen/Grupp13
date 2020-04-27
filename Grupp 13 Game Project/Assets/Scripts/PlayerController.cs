@@ -11,6 +11,7 @@ public class Boundary
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
+    private GameController gameController;
     private float nextFire;
 
     public float fireRate;
@@ -20,21 +21,34 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public Transform shotSpawn;
 
+    public int maxHealth = 3;
+    private int currentHealth;
+
     private void Start()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        
+        currentHealth = maxHealth;
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
+
     }
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire) //i tutorialen använde han Time.time, borde det inte vara Time.Deltatime?
+        if (Input.GetButton("Fire1") && Time.time > nextFire) //in tutorial he used Time.time, shouldn't it be Time.Deltatime?
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
            // audio.Play(); //shooting audio
         }
-        
+
 
     }
 
@@ -45,9 +59,22 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
         rigidbody.velocity = movement * speed;
         rigidbody.position = new Vector3(Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax), 0.0f, 0.0f);
-        //rigidbody.rotation = Quaternion.Euler(0.0f, rigidbody.velocity.x * -tilt, 0.0f); (Tilta skeppet lite åt sidorna vid rörelse. Fixa senare, detta funkar ej pga vi har 2D)
+        //rigidbody.rotation = Quaternion.Euler(0.0f, rigidbody.velocity.x * -tilt, 0.0f); (Tilt submarine slightly sideways while moving horizontally. Fix later, this doesnt work cuz 2D)
 
     }
 
-
+    public void updateHealthpoints(int hp)
+    {
+        if (currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        currentHealth += hp;
+        gameController.updateUiHealth(currentHealth);
+        if (currentHealth <= 0)
+        {
+            Destroy(gameController.player);
+            gameController.gameOver();
+        }
+    }
 }
