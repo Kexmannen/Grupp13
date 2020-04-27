@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Bolts
   - Boundary
+  - Hazard
+  - Obstacle
+  - Spawner
+  - Pickup
   layers:
   - Default
   - TransparentFX
@@ -17,8 +21,8 @@ TagManager:
   - 
   - Background
   - Player
-  - 
-  - 
+  - Hazards
+  - Obstacles
   - 
   - 
   - 
