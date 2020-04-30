@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Boundary
 {
-    public float xMin, xMax;
+    public float xMin, xMax, yMin, yMax;
 }
 
 public class PlayerController : MonoBehaviour
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire) //in tutorial he used Time.time, shouldn't it be Time.Deltatime?
+        if (Input.GetButton("Fire1") && Time.time > nextFire) 
         {
             nextFire = Time.time + fireRate;
             Instantiate(shot, shotSpawn.position, shotSpawn.rotation);

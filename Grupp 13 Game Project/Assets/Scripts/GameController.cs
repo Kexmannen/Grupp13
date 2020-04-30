@@ -68,7 +68,7 @@ public class GameController : MonoBehaviour
     {
         foreach (var i in uiHealthpoints)  //for each variable i in uiHealthpoints array, if the index is lesser than currentHP, enable image. Otherwise, disable it
         {
-           if(System.Array.IndexOf(uiHealthpoints, i) < currentHp) //This works, the index -1 < currentHp doesnt. Why?
+           if(System.Array.IndexOf(uiHealthpoints, i) < currentHp) 
            {
                 i.enabled = true;
            }else
