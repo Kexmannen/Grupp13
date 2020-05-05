@@ -4,10 +4,33 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public ObjectToSpawn[] objs;
+    public List <ObjectToSpawn> objs; //was an array before, might need to change back
+    public ObjectToSpawn shootingEnemy;
+    public ObjectToSpawn hazard;
+    public ObjectToSpawn obstacle;
+    public ObjectToSpawn pickup;
+    
+
+
+    private GameController gameController;
+    private int minScoreToSpawn = 100;
+    private bool calledOnce = false;
     private void Start()
     {
+        objs.Add(hazard); //had to add these in code instead of in the inspector because of loading problems between main menu and main scene. Ask at handledning about a better way to solve this.
+        objs.Add(obstacle);
+        objs.Add(pickup);
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
         spawn();
+        print("kör start");
     }
 
     public void spawn()
@@ -16,6 +39,7 @@ public class Spawner : MonoBehaviour
         {
             StartCoroutine(spawnObject(i)); //start coroutines of all objects in the array objs
         }
+        print("kör spawn");
     }
 
     private IEnumerator spawnObject(ObjectToSpawn objct) 
@@ -24,8 +48,17 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(objct.startWait);
         while (true)
         {
+            //check if score condition is met
+            if (gameController.score >= minScoreToSpawn && !objs.Contains(shootingEnemy))
+            {
+                //add shootingEnemy to objs 
+                objs.Add(shootingEnemy);
+                print("added shooting enemy to list!");
+
+            }
             for (int i = 0; i < objct.count; i++)
             {
+   
                 Vector3 spawnPosition = new Vector3(Random.Range(-objct.spawnValues.x, objct.spawnValues.x), objct.spawnValues.y, objct.spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 GameObject o = objct.obj[Random.Range(0, objct.obj.Length)];
@@ -33,8 +66,27 @@ public class Spawner : MonoBehaviour
                 yield return new WaitForSeconds(objct.spawnWait);
             }
             yield return new WaitForSeconds(objct.waveWait);
+            print("kör coroutine");
         }
+        
+    }
 
+    private void Update()
+    {
+        //this is a pretty ugly solution, ask at handledning if theres a better way of doing this
+        if (gameController.score >= minScoreToSpawn && objs.Contains(shootingEnemy))
+        {
+          
+            if (!calledOnce)
+            {  
+                StopAllCoroutines();
+                spawn();
+                calledOnce = true;
+                print("called!");
+            }
+            
+        }
+       // print("kör update");
     }
 
 }
@@ -51,22 +103,10 @@ public class Spawner : MonoBehaviour
         public float waveWait;
         private Spawner spawner;
 
-        //void Start()
-        //{
-        //    GameObject spawnerObject = GameObject.FindWithTag("Spawner");
-        //    if (spawnerObject != null)
-        //    {
-        //    spawner = spawnerObject.GetComponent<Spawner>();
-        //    }
-        //    if (spawnerObject == null)
-        //    {
-        //    Debug.Log("Cannot find 'Spawner' script");
-        //    }
-        //}
-        //None of this needed apparently, remove later
-    }
 
-//      GameObject o = objct.obj[Random.Range(0, objct.obj.Length)];
-//      yield return null;
-//      Instantiate(o); (instiate a random object from an array, use this for pickups
+        //For shooting enemies:
+        //Different behaviour than other spawnable objects
+        //Needs a reference to the player score
+        //Spawn after a certain score-value is met
+    }
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   obj:
   - {fileID: 8257889830653604354, guid: b3a43d52f79b2ce42820cec8a7a408e5, type: 3}
   spawnValues: {x: 2, y: 9, z: 0}
-  startWait: 20
-  count: 20
-  spawnWait: 20
-  waveWait: 1
+  startWait: 1
+  count: 5
+  spawnWait: 10
+  waveWait: 20

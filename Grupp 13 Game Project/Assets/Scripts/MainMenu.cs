@@ -33,7 +33,7 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(delay); //test för en delay
 
         //Detta laddar nästa scen i build index
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
     }
 
