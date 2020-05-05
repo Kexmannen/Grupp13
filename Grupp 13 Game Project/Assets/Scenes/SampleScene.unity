@@ -6789,6 +6789,9 @@ MonoBehaviour:
   shot: {fileID: 1530936354688772818, guid: 44c5a2ed2f71e2a46853efe1bc172658, type: 3}
   shotSpawns:
   - {fileID: 844162419}
+  - {fileID: 1785183976}
+  - {fileID: 1237265892}
+  shotLevel: 0
   maxHealth: 3
 --- !u!1 &1631318971
 GameObject:
