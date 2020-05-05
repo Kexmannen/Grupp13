@@ -921,7 +921,6 @@ MonoBehaviour:
   delay: 1
   anim: {fileID: 822516221}
   blackFade: {fileID: 822516222}
-  audiomanager: {fileID: 1360012031}
   pauseMenuUI: {fileID: 2071153224}
 --- !u!1001 &503080430
 PrefabInstance:
@@ -6816,18 +6815,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631318971}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.0012596523, w: -0.9999992}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 455332073}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.90200007, y: 0.016520834}
-  m_AnchorMax: {x: 0.97, y: 0.047520835}
-  m_AnchoredPosition: {x: 10, y: 0.89001465}
-  m_SizeDelta: {x: -3.0900002, y: -1.7799997}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.14400001}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -19.566284, y: 28.099976}
+  m_SizeDelta: {x: 75.3, y: 64.02}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &1631318973
 MonoBehaviour:
   m_ObjectHideFlags: 0
