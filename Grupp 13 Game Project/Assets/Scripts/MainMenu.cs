@@ -9,19 +9,28 @@ public class MainMenu : MonoBehaviour
     public Image blackFade;
     public Animator anim;
     public AudioSource source;
-    public AudioClip buttonPress;
     public float delay;
 
+    public static bool OptionsMenuOn = false;
+    public GameObject mainMenuUI;
+    public GameObject optionsMenuUI;
+
+
+
     // Lägga till ljud och fade till varje del
-    // Public void options
+
+
     // Public void highscore
-    // public void controls
+
 
     public void PlayGame()
     {
+        //FindObjectOfType<AudioManager>().Play("buttonPress");
+       AudioManager.instance.Play("buttonPress");
+       // audiomanager.Play("buttonPress");
         //Detta laddar nästa scen i build index, vi kan sätta det så det blir ett fast värde, men gjorde detta så länge.
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        source.PlayOneShot(buttonPress);
+        //source.PlayOneShot(buttonPress);
         StartCoroutine(ChangeLevel());
     }
 
@@ -35,6 +44,30 @@ public class MainMenu : MonoBehaviour
         //Detta laddar nästa scen i build index
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
 
+    }
+
+    public void OpenOptions()
+    {
+        AudioManager.instance.Play("buttonPress");
+        //FindObjectOfType<AudioManager>().Play("buttonPress");
+        optionsMenuUI.SetActive(true);
+        mainMenuUI.SetActive(false);
+        OptionsMenuOn = true;
+    }
+
+    public void BackToMenu()
+    {
+        optionsMenuUI.SetActive(false);
+        OptionsMenuOn = false;
+        mainMenuUI.SetActive(true);
+        //FindObjectOfType<AudioManager>().Play("buttonPress");
+        AudioManager.instance.Play("buttonPress");
+    }
+
+    public void OpenControls()
+    {
+        AudioManager.instance.Play("buttonPress");
+        //FindObjectOfType<AudioManager>().Play("buttonPress");
     }
 
 }
