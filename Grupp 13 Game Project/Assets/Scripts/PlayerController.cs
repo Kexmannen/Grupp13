@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
             {
                 Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
             }
+           
 
             // audio.Play(); //shooting audio
         }

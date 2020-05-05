@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public List <ObjectToSpawn> objs; //was an array before, might need to change back
+    public List <ObjectToSpawn> objs = new List<ObjectToSpawn>(); //was an array before, might need to change back
     public ObjectToSpawn shootingEnemy;
     public ObjectToSpawn hazard;
     public ObjectToSpawn obstacle;
@@ -17,6 +17,7 @@ public class Spawner : MonoBehaviour
     private bool calledOnce = false;
     private void Start()
     {
+        FindObjectsOfType<ObjectToSpawn>();
         objs.Add(hazard); //had to add these in code instead of in the inspector because of loading problems between main menu and main scene. Ask at handledning about a better way to solve this.
         objs.Add(obstacle);
         objs.Add(pickup);
