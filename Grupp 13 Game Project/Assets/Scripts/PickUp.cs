@@ -8,4 +8,4 @@ public abstract class PickUp : MonoBehaviour
     
 }
 
-//För idéer om hur vapen-pickups kan fungera, se "extending" tut-video 1h45 och framåt
+//För idéer om hur vapen-pickups kan fungera, se "extending" tut-video 1h56 och framåt

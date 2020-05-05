@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public float tilt;
     public Boundary boundary;
     public GameObject shot;
-    public Transform shotSpawn;
+    public Transform[] shotSpawns;
 
     public int maxHealth = 3;
     private int currentHealth;
@@ -42,13 +42,16 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time > nextFire) 
+        if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-           // audio.Play(); //shooting audio
-        }
+            foreach (var shotSpawn in shotSpawns)
+            {
+                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            }
 
+            // audio.Play(); //shooting audio
+        }
 
     }
 
