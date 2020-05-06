@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public Text scoreText;
     public Image[] uiHealthpoints;
+    public int score; //had to make this public because get-method didn't work? (ask about this at handledning later)
 
-    private int score;
     private bool gameIsOver;
     private bool restart;
     
@@ -77,4 +77,9 @@ public class GameController : MonoBehaviour
            }
         }
     }
+
+    //public int getScore()
+    //{
+    //    return score;
+    //}
 } 

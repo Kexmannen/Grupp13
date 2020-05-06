@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Grupp 13 Game Project/Assets/Scenes/TestingSpawn.unity.meta
+guid: 897cf080f6c6929448bc2c634a3724be
+DefaultImporter:
+=======
 guid: 633554775e3ab4544b8d05dcc89ebd8b
 PrefabImporter:
+>>>>>>> development:Grupp 13 Game Project/Assets/Prefabs/Pickups/ShotPickUp.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

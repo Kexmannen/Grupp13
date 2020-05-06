@@ -20,12 +20,14 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
     public GameObject shot;
     public Transform[] shotSpawns;
+    public int shotLevel = 0;
 
     public int maxHealth = 3;
     private int currentHealth;
 
     private void Start()
     {
+        
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
@@ -45,10 +47,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButton("Fire1") && Time.time > nextFire)
         {
             nextFire = Time.time + fireRate;
-            foreach (var shotSpawn in shotSpawns)
+            for(int i = 0; i <= shotLevel; i++)
             {
-                Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+                Instantiate(shot, shotSpawns[i].position, shotSpawns[i].rotation);
             }
+           
 
             // audio.Play(); //shooting audio
         }
