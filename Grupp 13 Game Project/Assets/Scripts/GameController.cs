@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject obstacle;
-    public GameObject hazard;
+
+    //public static GameController gameController;  - temporarily disabled - this should be used in future versions
+    public GameObject obstacle; //tror ej vi behöver dessa längre då vi inte sköter spawning i det här scriptet längre
+    public GameObject hazard;   //tror ej vi behöver dessa längre då vi inte sköter spawning i det här scriptet längre
     public GameObject player;
 
     public Text restartText;
@@ -15,13 +17,28 @@ public class GameController : MonoBehaviour
     public Text scoreText;
     public Image[] uiHealthpoints;
     public int score; //had to make this public because get-method didn't work? (ask about this at handledning later)
+    public bool isGame = false;
 
+   
     private bool gameIsOver;
     private bool restart;
-    
 
+    private void Awake()
+    {
+        //-temporarily disabled - this should be used in future versions
+        //if (gameController == null)
+        //    gameController = this;
+        //else
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+        //DontDestroyOnLoad(gameController);
+
+    }
     void Start()
     {
+        isGame = true; //temporary, in future versions this should be set to true when samplescene is loaded 
         gameIsOver = false;
         restart = false;
         restartText.text = "";   //använda setActive istället? - Ja
@@ -56,7 +73,7 @@ public class GameController : MonoBehaviour
     }
     private void updateScore()
     {
-        scoreText.text = "Score: " + score;
+       scoreText.text = "Score: " + score;
     }
 
     public void gameOver()
@@ -68,13 +85,14 @@ public class GameController : MonoBehaviour
     {
         foreach (var i in uiHealthpoints)  //for each variable i in uiHealthpoints array, if the index is lesser than currentHP, enable image. Otherwise, disable it
         {
-           if(System.Array.IndexOf(uiHealthpoints, i) < currentHp) 
-           {
+            if (System.Array.IndexOf(uiHealthpoints, i) < currentHp)
+            {
                 i.enabled = true;
-           }else
-           {
-                i.enabled = false; 
-           }
+            }
+            else
+            {
+                i.enabled = false;
+            }
         }
     }
 

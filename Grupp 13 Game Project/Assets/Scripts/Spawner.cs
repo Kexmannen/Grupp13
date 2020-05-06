@@ -15,6 +15,12 @@ public class Spawner : MonoBehaviour
     private GameController gameController;
     private int minScoreToSpawn = 100;
     private bool calledOnce = false;
+
+    private void Awake()
+    {
+        GameObject spawner = GameObject.FindWithTag("Spawner");
+        DontDestroyOnLoad(spawner);
+    }
     private void Start()
     {
         FindObjectsOfType<ObjectToSpawn>();
@@ -49,22 +55,26 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(objct.startWait);
         while (true)
         {
-            //check if score condition is met
-            if (gameController.score >= minScoreToSpawn && !objs.Contains(shootingEnemy))
-            {
-                //add shootingEnemy to objs 
-                objs.Add(shootingEnemy);
-                print("added shooting enemy to list!");
+            if (gameController.isGame) { 
 
-            }
-            for (int i = 0; i < objct.count; i++)
-            {
+                    //check if score condition is met
+                if (gameController.score >= minScoreToSpawn && !objs.Contains(shootingEnemy))
+                {
+                    //add shootingEnemy to objs 
+                    objs.Add(shootingEnemy);
+                    print("added shooting enemy to list!");
+
+                }
+                for (int i = 0; i < objct.count; i++)
+                {
    
-                Vector3 spawnPosition = new Vector3(Random.Range(-objct.spawnValues.x, objct.spawnValues.x), objct.spawnValues.y, objct.spawnValues.z);
-                Quaternion spawnRotation = Quaternion.identity;
-                GameObject o = objct.obj[Random.Range(0, objct.obj.Length)];
-                Instantiate(o, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(objct.spawnWait);
+                    Vector3 spawnPosition = new Vector3(Random.Range(-objct.spawnValues.x, objct.spawnValues.x), objct.spawnValues.y, objct.spawnValues.z);
+                    Quaternion spawnRotation = Quaternion.identity;
+                    GameObject o = objct.obj[Random.Range(0, objct.obj.Length)];
+                    Instantiate(o, spawnPosition, spawnRotation);
+                    yield return new WaitForSeconds(objct.spawnWait);
+                   // if (!gameController.isGame) yield break;
+                }
             }
             yield return new WaitForSeconds(objct.waveWait);
             print("kör coroutine");

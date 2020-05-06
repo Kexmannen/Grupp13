@@ -9,7 +9,7 @@ public class Boundary
 }
 
 public class PlayerController : MonoBehaviour
-{
+{   
     private Rigidbody2D rigidbody;
     private GameController gameController;
     private float nextFire;

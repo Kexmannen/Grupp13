@@ -15,12 +15,29 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject optionsMenuUI;
 
+    //private GameController gameController;  - temporarily disabled - this should be used in future versions
+
+    private void Awake()
+    {
+        // - temporarily disabled - this should be used in future versions
+        //GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        //if (gameControllerObject != null)
+        //{
+        //    gameController = gameControllerObject.GetComponent<GameController>();
+        //}
+        //if (gameController == null)
+        //{
+        //    Debug.Log("Cannot find 'GameController' script");
+        //}  
 
 
+
+    }
     // Lägga till ljud och fade till varje del
 
 
     // Public void highscore
+
 
 
     public void PlayGame()
@@ -42,8 +59,8 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(delay); //test för en delay
 
         //Detta laddar nästa scen i build index
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        //gameController.isGame = true; - temporarily disabled - this should be used in future versions
     }
 
     public void OpenOptions()
