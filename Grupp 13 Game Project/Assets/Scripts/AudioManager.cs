@@ -4,7 +4,7 @@ using System;
 
 public class AudioManager : MonoBehaviour
 {
-   // public static AudioManager instance;
+   //public static AudioManager instance;
 
     //The Idea of the AudioController is to have a list of sounds, that we can add and remove as we go.
     //And Each sound has some different properties

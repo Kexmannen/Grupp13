@@ -46,3 +46,5 @@ public class BGScroller : MonoBehaviour
 
     }
 }
+
+//rullande bakgrund - använd spawner och sätt bakgrunden och lagrenas hastighet till (minus)spelarens hastighet (resolved?)

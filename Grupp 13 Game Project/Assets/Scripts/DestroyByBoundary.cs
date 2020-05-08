@@ -9,3 +9,5 @@ public class DestroyByBoundary : MonoBehaviour
         Destroy(other.gameObject);
     }
 }
+
+//använd boundary till att lägga tillbaka de "förstörda" objekten i en ny lista och spawna samma objekt hela tiden (se länk om object pooling)

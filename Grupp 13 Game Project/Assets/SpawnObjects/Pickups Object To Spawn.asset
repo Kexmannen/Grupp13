@@ -18,5 +18,5 @@ MonoBehaviour:
   spawnValues: {x: 2, y: 9, z: 0}
   startWait: 20
   count: 20
-  spawnWait: 20
+  spawnWait: 10
   waveWait: 1

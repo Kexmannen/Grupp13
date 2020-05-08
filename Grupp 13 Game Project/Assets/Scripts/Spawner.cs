@@ -15,15 +15,18 @@ public class Spawner : MonoBehaviour
     private GameController gameController;
     private int minScoreToSpawn = 100;
     private bool calledOnce = false;
+    private bool releaseRanged = false;
 
     private void Awake()
     {
         GameObject spawner = GameObject.FindWithTag("Spawner");
-        DontDestroyOnLoad(spawner);
+        //DontDestroyOnLoad(spawner);
     }
     private void Start()
     {
-        FindObjectsOfType<ObjectToSpawn>();
+        //FindObjectsOfType<ObjectToSpawn>();
+
+
         objs.Add(hazard); //had to add these in code instead of in the inspector because of loading problems between main menu and main scene. Ask at handledning about a better way to solve this.
         objs.Add(obstacle);
         objs.Add(pickup);
@@ -52,15 +55,17 @@ public class Spawner : MonoBehaviour
     private IEnumerator spawnObject(ObjectToSpawn objct) 
     {
         
+        
         yield return new WaitForSeconds(objct.startWait);
         while (true)
         {
             if (gameController.isGame) { 
 
                     //check if score condition is met
-                if (gameController.score >= minScoreToSpawn && !objs.Contains(shootingEnemy))
+                if (releaseRanged == false && gameController.getScore() >= minScoreToSpawn)
                 {
                     //add shootingEnemy to objs 
+                    releaseRanged = true;
                     objs.Add(shootingEnemy);
                     print("added shooting enemy to list!");
 
@@ -84,8 +89,8 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
-        //this is a pretty ugly solution, ask at handledning if theres a better way of doing this
-        if (gameController.score >= minScoreToSpawn && objs.Contains(shootingEnemy))
+        
+        if (gameController.getScore() >= minScoreToSpawn && objs.Contains(shootingEnemy))
         {
           
             if (!calledOnce)
@@ -97,27 +102,7 @@ public class Spawner : MonoBehaviour
             }
             
         }
-       // print("kör update");
+      
     }
 
 }
-
-    [CreateAssetMenu(menuName = "ObjectSpawnStuff")] 
-    public class ObjectToSpawn : ScriptableObject //Now we can create customized objects from the create menu in the project window
-    {
-        
-        public GameObject[] obj;
-        public Vector3 spawnValues;
-        public float startWait;
-        public int count;
-        public float spawnWait;
-        public float waveWait;
-        private Spawner spawner;
-
-
-        //For shooting enemies:
-        //Different behaviour than other spawnable objects
-        //Needs a reference to the player score
-        //Spawn after a certain score-value is met
-    }
-

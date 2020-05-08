@@ -62,7 +62,3 @@ public class DestroyByContact : MonoBehaviour
     } 
 }
 
-//angående kollision mellan obstacles och hazards - prova mass och physics material
-//rullande bakgrund - använd spawner och sätt bakgrunden och lagrenas hastighet till (minus)spelarens hastighet
-//använd boundary till att lägga tillbaka de "förstörda" objekten i en ny lista och spawna samma objekt hela tiden (se länk om object pooling)
-//spawna pickups- spawna random från en array (random.Range)

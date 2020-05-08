@@ -15,11 +15,12 @@ public class MainMenu : MonoBehaviour
     public GameObject mainMenuUI;
     public GameObject optionsMenuUI;
 
-    //private GameController gameController;  - temporarily disabled - this should be used in future versions
+    //private GameController gameController;  - temporarily disabled - might be needed for highscorelist-stuff
 
     private void Awake()
     {
-        // - temporarily disabled - this should be used in future versions
+        // - temporarily disabled -  might be needed for highscorelist-stuff
+
         //GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         //if (gameControllerObject != null)
         //{

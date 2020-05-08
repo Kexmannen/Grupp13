@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
 
-    //public static GameController gameController;  - temporarily disabled - this should be used in future versions
+    //public static GameController gameController;  - temporarily disabled - might be needed for highscorelist-stuff later
     public GameObject obstacle; //tror ej vi behöver dessa längre då vi inte sköter spawning i det här scriptet längre
     public GameObject hazard;   //tror ej vi behöver dessa längre då vi inte sköter spawning i det här scriptet längre
     public GameObject player;
@@ -16,16 +16,16 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
     public Text scoreText;
     public Image[] uiHealthpoints;
-    public int score; //had to make this public because get-method didn't work? (ask about this at handledning later)
+    
     public bool isGame = false;
 
-   
+    private int score;
     private bool gameIsOver;
     private bool restart;
 
     private void Awake()
     {
-        //-temporarily disabled - this should be used in future versions
+        //-temporarily disabled - might be needed for highscorelist-stuff later
         //if (gameController == null)
         //    gameController = this;
         //else
@@ -96,8 +96,8 @@ public class GameController : MonoBehaviour
         }
     }
 
-    //public int getScore()
-    //{
-    //    return score;
-    //}
+    public int getScore()
+    {
+       return score;
+    }
 } 

@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4055114852423050060}
   - component: {fileID: 4985792824892505894}
   - component: {fileID: -3266693604845382051}
-  - component: {fileID: 1976158650684144204}
+  - component: {fileID: -8634956905705544716}
+  - component: {fileID: -1343541787980790506}
   m_Layer: 0
   m_Name: TestPickUp
   m_TagString: Pickup
@@ -121,7 +122,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1976158650684144204
+--- !u!114 &-8634956905705544716
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,10 +131,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5766619442441972582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f2b5f3c14d5dec4abc9556ac238c664, type: 3}
+  m_Script: {fileID: 11500000, guid: f1193df27928dbc4cbe669e486166afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotSpawns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  speed: -1
+--- !u!114 &-1343541787980790506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5766619442441972582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8644433baa786bf4c9227f41f86b5c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
