@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ObjectSpawnStuff")]
+
+[CreateAssetMenu(menuName = "ObjectSpawnStuff")]//[System.Serializable]
 public class ObjectToSpawn : ScriptableObject //Now we can create customized objects from the create menu in the project window
 {
 
