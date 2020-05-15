@@ -48,9 +48,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: dca02b5b49e3ea744aee9b309030fb50, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
+    group: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff, type: 2}
   - name: BackgroundMusic
     clip: {fileID: 8300000, guid: 266b484dc78a1cd4787c6b99318221c0, type: 3}
     volume: 1
     pitch: 1
+    loop: 0
     source: {fileID: 0}
+    group: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff, type: 2}
