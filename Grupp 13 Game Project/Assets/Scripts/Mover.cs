@@ -27,6 +27,10 @@ public class Mover : MonoBehaviour
         }
     }
 
+    //public void StopMoving()
+    //{
+    //    rigidbody.bodyType = RigidbodyType2D.Static;
+    //}
 }
 
 //Idéer för när fiendeobjekten kolliderar - vid kollission, addera kraft! så att du studsar
