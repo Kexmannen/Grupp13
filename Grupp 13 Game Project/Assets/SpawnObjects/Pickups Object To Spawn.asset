@@ -15,6 +15,7 @@ MonoBehaviour:
   obj:
   - {fileID: 4300943242893918440, guid: 07906099b600ecd42a8f48ccb01e6d12, type: 3}
   - {fileID: 5766619442441972582, guid: aff40c94698181a4991e413bb94c4d4f, type: 3}
+  - {fileID: 317916960246919948, guid: 897cf080f6c6929448bc2c634a3724be, type: 3}
   spawnValues: {x: 2, y: 9, z: 0}
   startWait: 20
   count: 20

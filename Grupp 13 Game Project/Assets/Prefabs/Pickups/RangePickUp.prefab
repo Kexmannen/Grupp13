@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 4985792824892505894}
   - component: {fileID: -3266693604845382051}
   - component: {fileID: -8634956905705544716}
-  - component: {fileID: -1343541787980790506}
+  - component: {fileID: -1926679585637058728}
   m_Layer: 0
-  m_Name: TestPickUp
+  m_Name: RangePickUp
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -1
---- !u!114 &-1343541787980790506
+--- !u!114 &-1926679585637058728
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +144,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 5766619442441972582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8644433baa786bf4c9227f41f86b5c7e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9997a20b88f9ec746aafeb73cfb463c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasedBy: 0.1
+  powerUpDuration: 5
