@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rigidbody;
     private GameController gameController;
     private float nextFire;
+    private GameObject firedShot;
+    private int currentHealth;
 
     public float fireRate;
     public float speed;
@@ -21,9 +23,8 @@ public class PlayerController : MonoBehaviour
     public GameObject shot;
     public Transform[] shotSpawns;
     public int shotLevel = 0;
-
     public int maxHealth = 3;
-    private int currentHealth;
+    public float rangeTime = 0.5f;
 
     private void Start()
     {
@@ -49,10 +50,10 @@ public class PlayerController : MonoBehaviour
             nextFire = Time.time + fireRate;
             for(int i = 0; i <= shotLevel; i++)
             {
-                Instantiate(shot, shotSpawns[i].position, shotSpawns[i].rotation);
-            }
-           
+                firedShot = Instantiate(shot, shotSpawns[i].position, shotSpawns[i].rotation);
+                Destroy(firedShot, rangeTime);
 
+            }
             // audio.Play(); //shooting audio
         }
 
