@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private GameObject firedShot;
     private int currentHealth;
     private float nextFire;
+    private bool isRangedUp = false;
 
     public float rangeTime = 0.5f;
     public float fireRate;
@@ -83,5 +84,25 @@ public class PlayerController : MonoBehaviour
             Destroy(gameController.player);
             gameController.gameOver();
         }
+    }
+
+    public void GiveRangeUp(float powerUpDuration, float increasedBy)
+    {
+        if (!isRangedUp)
+        {
+            StartCoroutine(givePowerUp(powerUpDuration, increasedBy));
+        }
+       
+    }
+
+    private IEnumerator givePowerUp(float duration, float increasedBy)
+    {
+        Debug.Log("player picked up RangeUp with duration: " + duration + "sec");
+        rangeTime += increasedBy; //Ökar hur länge skotten existerar 
+        isRangedUp = true;
+        yield return new WaitForSeconds(duration); //vänta i x-antal sec
+        isRangedUp = false;
+        Debug.Log("Effect of rangeUp has worn off");
+        rangeTime -= increasedBy; //sänk tiden för hur länge skotten existerar
     }
 }

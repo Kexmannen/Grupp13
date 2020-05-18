@@ -14,19 +14,24 @@ public class RangeUp : PickUp
         if (other.tag == "Player" && !isActivated) //om du krockar med playern och powerUpen inte har aktiverats 
         {
             isActivated = true; //Du flaggar att powerUpen har aktiverats. 
-            gameObject.GetComponent<SpriteRenderer>().enabled = false; //stänger av spriterenderen  
-            StartCoroutine(givePowerUp(other.gameObject, powerUpDuration)); //Tar in spelarens gameobject och hur länge poweupen ska gälla.
+            gameObject.GetComponent<SpriteRenderer>().enabled = false; //stänger av spriterenderen 
+            //StartCoroutine(givePowerUp(other.gameObject, powerUpDuration)); //Tar in spelarens gameobject och hur länge poweupen ska gälla.
+            other.GetComponent<PlayerController>().GiveRangeUp(powerUpDuration, increasedBy);
            
         }
     }
 
-    private IEnumerator givePowerUp(GameObject player, float duration)
+    //private IEnumerator givePowerUp(GameObject player, float duration)
+    //{
+    //    Debug.Log("player picked up RangeUp with duration: " + duration + "sec");
+    //    player.GetComponent<PlayerController>().rangeTime += increasedBy; //Ökar hur länge skotten existerar 
+    //    yield return new WaitForSeconds(duration); //vänta i x-antal sec
+    //    Debug.Log("Effect of rangeUp has worn off");
+    //    player.GetComponent<PlayerController>().rangeTime -= increasedBy; //sänk tiden för hur länge skotten existerar
+    //    Destroy(gameObject);
+    //}
+    private void OnDestroy()
     {
-        Debug.Log("player picked up RangeUp with duration: " + duration + "sec");
-        player.GetComponent<PlayerController>().rangeTime += increasedBy; //Ökar hur länge skotten existerar 
-        yield return new WaitForSeconds(duration); //vänta i x-antal sec
-        Debug.Log("Effect of rangeUp has worn off");
-        player.GetComponent<PlayerController>().rangeTime -= increasedBy; //sänk tiden för hur länge skotten existerar
-        Destroy(gameObject);
+        Debug.Log("förstörd");
     }
 }
