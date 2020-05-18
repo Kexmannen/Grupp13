@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f2b5f3c14d5dec4abc9556ac238c664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  increasedBy: 2
+  powerUpDuration: 5
 --- !u!114 &1355931789563616906
 MonoBehaviour:
   m_ObjectHideFlags: 0

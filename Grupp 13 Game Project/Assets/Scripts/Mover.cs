@@ -27,10 +27,13 @@ public class Mover : MonoBehaviour
         }
     }
 
-    //public void StopMoving()
-    //{
-    //    rigidbody.bodyType = RigidbodyType2D.Static;
-    //}
+    public void StopMoving()
+    {
+        speed = 0f;
+        rigidbody.velocity = new Vector2(0, 0); //Nollställer velocity
+        rigidbody.isKinematic = true; //gör så att den inte kan krocka med något
+        rigidbody.Sleep(); //Sålänge inget ger den en ny fart, kommer den stanna i minst 1 frame. 
+   }
 }
 
 //Idéer för när fiendeobjekten kolliderar - vid kollission, addera kraft! så att du studsar

@@ -15,21 +15,20 @@ public class RangeUp : PickUp
         {
             isActivated = true; //Du flaggar att powerUpen har aktiverats. 
             gameObject.GetComponent<SpriteRenderer>().enabled = false; //stänger av spriterenderen 
-            //StartCoroutine(givePowerUp(other.gameObject, powerUpDuration)); //Tar in spelarens gameobject och hur länge poweupen ska gälla.
-            other.GetComponent<PlayerController>().GiveRangeUp(powerUpDuration, increasedBy);
-           
+            gameObject.GetComponent<Mover>().StopMoving(); 
+            StartCoroutine(givePowerUp(other.gameObject, powerUpDuration)); //Tar in spelarens gameobject och hur länge poweupen ska gälla.
         }
     }
 
-    //private IEnumerator givePowerUp(GameObject player, float duration)
-    //{
-    //    Debug.Log("player picked up RangeUp with duration: " + duration + "sec");
-    //    player.GetComponent<PlayerController>().rangeTime += increasedBy; //Ökar hur länge skotten existerar 
-    //    yield return new WaitForSeconds(duration); //vänta i x-antal sec
-    //    Debug.Log("Effect of rangeUp has worn off");
-    //    player.GetComponent<PlayerController>().rangeTime -= increasedBy; //sänk tiden för hur länge skotten existerar
-    //    Destroy(gameObject);
-    //}
+    private IEnumerator givePowerUp(GameObject player, float duration)
+    {
+        Debug.Log("player picked up RangeUp with duration: " + duration + "sec");
+        player.GetComponent<PlayerController>().rangeTime += increasedBy; //Ökar hur länge skotten existerar 
+        yield return new WaitForSeconds(duration); //vänta i x-antal sec
+        player.GetComponent<PlayerController>().rangeTime -= increasedBy; //sänk tiden för hur länge skotten existerar
+        Debug.Log("Effect of rangeUp has worn off");
+        Destroy(gameObject);
+    }
     private void OnDestroy()
     {
         Debug.Log("förstörd");
