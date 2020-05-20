@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        
 
         rigidbody = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
@@ -65,6 +66,12 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, 0.0f);
+
+        ////new
+        //Vector3 acceleration = Input.acceleration;
+        //Vector3 movement = new Vector3(acceleration.x, 0.0f, 0.0f);
+        ////\new
+
         rigidbody.velocity = movement * speed;
         rigidbody.position = new Vector3(Mathf.Clamp(rigidbody.position.x, boundary.xMin, boundary.xMax), 0.0f, 0.0f);
         //rigidbody.rotation = Quaternion.Euler(0.0f, rigidbody.velocity.x * -tilt, 0.0f); (Tilt submarine slightly sideways while moving horizontally. Fix later, this doesnt work cuz 2D)
