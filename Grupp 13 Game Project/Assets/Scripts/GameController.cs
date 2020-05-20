@@ -80,6 +80,8 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over";
         gameIsOver = true;
+        //senare: fixa att användaren kan skriva in ett username för att spara highscore
+        StoreScore(score);
     }
     public void updateUiHealth(int currentHp)
     {
@@ -99,5 +101,11 @@ public class GameController : MonoBehaviour
     public int getScore()
     {
        return score;
+    }
+
+    private void StoreScore(int score) //senare: ta in ett namn också
+    {
+        string name = "name";
+        HighScoreController.instance.AddHighScoreEntry(score, name);
     }
 } 
