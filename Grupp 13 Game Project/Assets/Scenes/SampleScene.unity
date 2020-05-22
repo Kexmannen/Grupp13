@@ -3970,6 +3970,11 @@ PrefabInstance:
       propertyPath: shotSpawns.Array.data[4]
       value: 
       objectReference: {fileID: 1583698272}
+    - target: {fileID: 3662448087043223943, guid: 2bdecbce09f6657499a49c7cd6cda163,
+        type: 3}
+      propertyPath: boundary.yMax
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3662448087043223946, guid: 2bdecbce09f6657499a49c7cd6cda163,
         type: 3}
       propertyPath: m_Name
