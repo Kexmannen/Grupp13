@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class HighScoreTable : MonoBehaviour
 {
     public Transform entryContainer;
     public Transform entryTemplate;
     private List<Transform> highScoreEntryTransformList;
+    private List<int> highScoreEntryList;
     private void Awake()
     {
         //entryContainer = transform.Find("HighScoreEntryContainer");
@@ -16,27 +18,55 @@ public class HighScoreTable : MonoBehaviour
 
    
         highScoreEntryTransformList = new List<Transform>();
+        highScoreEntryList = new List<int>();
+
+//#if UNITY_EDITOR
+//        //AddHighScoreEntry(64623, "namn");
+//        //AddHighScoreEntry(164623, "namn");
+//        //AddHighScoreEntry(264623, "namn");
+//        //AddHighScoreEntry(364623, "namn");
+//        //AddHighScoreEntry(96464623, "namn");
+//        //AddHighScoreEntry(3364623, "namn");
+//#endif
+
+        //create a key to hold and save data
         string jsonString = PlayerPrefs.GetString("highScoreTable");
+
+        //must be stored within an object
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+        Debug.Log(jsonString);
 
         //sort entrylist by score
-        for(int i = 0; i < highScores.highScoreEntryList.Count; i++)
+        //for (int i = 0; i < highScores.highScoreEntryList.Count; i++)
+        //{
+        //    for (int j = i + 1; j < highScores.highScoreEntryList.Count; j++)
+        //    {
+        //        if (highScores.highScoreEntryList[j].score > highScores.highScoreEntryList[i].score)
+        //        {
+        //            //swap
+        //            int temp = highScores.highScoreEntryList[i].score;
+        //            highScores.highScoreEntryList[i] = highScores.highScoreEntryList[j];
+        //            highScores.highScoreEntryList[j].score = temp;
+        //        }
+        //    }
+        //}
+
+        highScores.highScoreEntryList = highScores.highScoreEntryList.OrderByDescending(o => o.score).ToList();
+
+
+        //keep only top 5 entries
+        if (highScores.highScoreEntryList.Count > 5)
         {
-            for(int j = i + 1; j < highScores.highScoreEntryList.Count; j++)
+            for (int h = highScores.highScoreEntryList.Count; h > 5; h--)
             {
-                if (highScores.highScoreEntryList[j] > highScores.highScoreEntryList[i])
-                {
-                    //swap
-                    int temp = highScores.highScoreEntryList[i];
-                    highScores.highScoreEntryList[i] = highScores.highScoreEntryList[j];
-                    highScores.highScoreEntryList[j] = temp;
-                }
+                highScores.highScoreEntryList.RemoveAt(5);
             }
         }
 
-        foreach (int i in highScores.highScoreEntryList)
+        //create visual representation (graphics) for each highscore-entry
+        foreach (var i in highScores.highScoreEntryList)
         {
-            createHighScoreEntry(i, entryContainer, highScoreEntryTransformList);
+            createHighScoreEntry(i.score, entryContainer, highScoreEntryTransformList);
         }
 
     }
@@ -88,27 +118,27 @@ public class HighScoreTable : MonoBehaviour
                 break;
 
         }
-
-
         transformList.Add(entryTransform);
     }
 
-    private void addHighScoreEntry(int score)
-    {
-        //Load saved highscores
-        string jsonString = PlayerPrefs.GetString("highScoreTable");
-        HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
-        //Add new entry to highscores
-        highScores.highScoreEntryList.Add(score);
-        //Save updated list
-        string json = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("highScoreTable", json);
-        PlayerPrefs.Save();
+    //public void AddHighScoreEntry(int points, string name)
+    //{
+    //    HighScore score = new HighScore { score = points, name = name };
+    //    //Load saved highscores
+    //    string jsonString = PlayerPrefs.GetString("highScoreTable");
+    //    HighScores highScores = JsonUtility.FromJson<HighScores>(jsonString);
+    //    if (highScores == null)
+    //    {
+    //        highScores = new HighScores();
+    //    }
+    //    //Add new entry to highscores
+    //    highScores.highScoreEntryList.Add(score);
 
-    }
+    //    //Save updated list
+    //    string json = JsonUtility.ToJson(highScores);
+    //    PlayerPrefs.SetString("highScoreTable", json);
+    //    PlayerPrefs.Save();
 
-    private class HighScores
-    {
-        public List<int> highScoreEntryList;
-    }
+    //}
 }
+//kolla upp sparning av jsondata i assetsmappen, kolla skillnad mellan class och struct

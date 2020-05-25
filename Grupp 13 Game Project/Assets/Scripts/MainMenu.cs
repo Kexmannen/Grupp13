@@ -12,8 +12,10 @@ public class MainMenu : MonoBehaviour
     public float delay;
 
     public static bool OptionsMenuOn = false;
+    public static bool ControlsMenuOn = false;
     public GameObject mainMenuUI;
     public GameObject optionsMenuUI;
+    public GameObject controlsMenuUI;
 
     //private GameController gameController;  - temporarily disabled - might be needed for highscorelist-stuff
 
@@ -76,7 +78,9 @@ public class MainMenu : MonoBehaviour
     public void BackToMenu()
     {
         optionsMenuUI.SetActive(false);
+        controlsMenuUI.SetActive(false);
         OptionsMenuOn = false;
+        ControlsMenuOn = false;
         mainMenuUI.SetActive(true);
         //FindObjectOfType<AudioManager>().Play("buttonPress");
         AudioManager.instance.Play("buttonPress");
@@ -86,6 +90,10 @@ public class MainMenu : MonoBehaviour
     {
         AudioManager.instance.Play("buttonPress");
         //FindObjectOfType<AudioManager>().Play("buttonPress");
+        controlsMenuUI.SetActive(true);
+        mainMenuUI.SetActive(false);
+        ControlsMenuOn = true;
+
     }
 
 }
