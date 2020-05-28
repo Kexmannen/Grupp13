@@ -14,7 +14,11 @@ public class RangeUp : PickUp
         if (other.tag == "Player" && !isActivated) //om du krockar med playern och powerUpen inte har aktiverats 
         {
             isActivated = true; //Du flaggar att powerUpen har aktiverats. 
-            gameObject.GetComponent<SpriteRenderer>().enabled = false; //stänger av spriterenderen 
+
+
+            foreach (Transform child in transform)
+                child.gameObject.GetComponent<SpriteRenderer>().enabled = false;//stänger av spriterenderen på objektets children
+
             gameObject.GetComponent<Mover>().StopMoving(); 
             StartCoroutine(givePowerUp(other.gameObject, powerUpDuration)); //Tar in spelarens gameobject och hur länge poweupen ska gälla.
         }
