@@ -198,6 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2011d536fb4fd1449959d6669dd7dbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyExplosion: {fileID: 6340711300030410678, guid: ccac54ecf979a154e8292b1bc415d968,
+    type: 3}
+  playerCollisionExplosion: {fileID: 3849593792429817956, guid: 83b0dc4f394be294cb0c5b22ad157f3b,
+    type: 3}
+  destroyExplosionAfterFinished: 0.8
   scoreValue: 20
   dmgValue: -1
 --- !u!114 &8257889830653604365

@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private Camera cam;
     private int currentHealth;
     private float nextFire;
+    //denna kodrad behövs för att förstöra det instantierade klonobjektet
+    private GameObject instantiatedObj;
     private bool isRangedUp = false;
     bool isMoving = false;
     float deltaX;
@@ -31,6 +33,11 @@ public class PlayerController : MonoBehaviour
     public Boundary boundary;
     public GameObject shot;
     public Transform[] shotSpawns;
+
+    //skapar referenser för enexplotion i inspektorn och drar in prefaben för animationsobjektet
+    public GameObject playerExplosion;
+    //Tiden innan explotionen förstörs, så om animationen har en läng på 1 sek så tilldelar jag det 1 sekund.
+    public float destroyExplosionAfterFinished;
 
     private void Start()
     {
@@ -129,7 +136,11 @@ public class PlayerController : MonoBehaviour
         if (currentHealth <= 0)
         {
             Destroy(gameController.player);
+            instantiatedObj = (GameObject)Instantiate(playerExplosion, transform.position, transform.rotation);
+            Destroy(instantiatedObj, destroyExplosionAfterFinished);
             gameController.gameOver();
+       
         }
     }
+
 }

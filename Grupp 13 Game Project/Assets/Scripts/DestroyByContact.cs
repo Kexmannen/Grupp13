@@ -4,10 +4,19 @@ using UnityEngine;
 
 public class DestroyByContact : MonoBehaviour
 {
-    //public GameObject explosion;
+
+    //skapar referenser för varje typ av explotion i inspektorn och drar in prefaben för animationsobjektet, tex EnemyDeath osv
+    public GameObject enemyExplosion;
+    public GameObject playerCollisionExplosion;
+    //Tiden innan explotionen förstörs, så om animationen har en läng på 1 sek så tilldelar jag det 1 sekund.
+    public float destroyExplosionAfterFinished;
     //public GameObject playerExplosion;
     public int scoreValue;
-    public int dmgValue; 
+    public int dmgValue;
+
+    //denna kodrad behövs för att förstöra det instantierade klonobjektet
+    private GameObject instantiatedObj;
+    private GameObject otherInstantiatedObject;
 
     private GameController gameController;
     private PlayerController playerController;
@@ -33,26 +42,33 @@ public class DestroyByContact : MonoBehaviour
         {
             return;
         }
+
         if(other.CompareTag ("Pickup")) //This might not be needed depending on which solution we go for on Pickups, see comments in Pickup script. If we do choose to go with this solution, then add it to the above statement instead.
         {
             return;
         }
-        //if (explosion != null)
-        //{
-        //    Add later: Instantiate explosion "on" hazard
-        //}
 
         if (other.CompareTag("Player")) //if the object collided with is Player, update hp and destroy the gameobject of "this" (not the player)
         {
             //Add later: instantiate explosion "on" player, see Boundaries, Hazards and Enemies > 3. Explosions
+
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
-            playerController.updateHealthpoints(dmgValue); 
+            playerController.updateHealthpoints(dmgValue);
+            instantiatedObj = (GameObject)Instantiate(playerCollisionExplosion, transform.position, transform.rotation); //Initierar en klon(i detta fall explotionen) på samma plats som pbjektet
+            otherInstantiatedObject = (GameObject)Instantiate(enemyExplosion, transform.position, transform.rotation);
             Destroy(gameObject);
+            Destroy(instantiatedObj, destroyExplosionAfterFinished); //förstör klonen efter en viss tid
+            Destroy(otherInstantiatedObject, destroyExplosionAfterFinished);
+
         }
+
         if (CompareTag("Hazard") && other.CompareTag("Bolts")) //if the player shot hits a hazard, destroy the hazard and add score
         {
+            
             gameController.addScore(scoreValue);
-            Destroy(gameObject);
+           instantiatedObj = (GameObject) Instantiate(enemyExplosion, transform.position, transform.rotation); //Initierar en klon(i detta fall explotionen) på samma plats som pbjektet
+            Destroy(gameObject);//förstör enemyn objektet
+            Destroy(instantiatedObj, destroyExplosionAfterFinished); //förstör klonen efter en viss tid
         }
         if (CompareTag("Obstacle") && other.CompareTag("Bolts")) //if the player shot hits an obstacle, destroy the player shot
         {
