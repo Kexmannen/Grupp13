@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/HighScoreView.unity
+    guid: 27fd733dae617564fb1653942fb4b7b3
   m_configObjects: {}
