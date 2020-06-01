@@ -96,4 +96,13 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void OpenHighScore()
+    {
+        AudioManager.instance.Play("buttonPress");
+        SceneManager.LoadScene(2);
+
+    }
+
+
+
 }
