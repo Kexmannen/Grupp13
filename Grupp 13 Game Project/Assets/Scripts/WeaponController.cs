@@ -19,7 +19,7 @@ public class WeaponController : MonoBehaviour
     private void fire()
     {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-        //audioSource.play();
+        AudioManager.instance.Play("ShootingEnemy_Shot");
 
     }
 
