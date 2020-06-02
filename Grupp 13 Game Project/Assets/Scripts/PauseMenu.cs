@@ -22,8 +22,23 @@ public class PauseMenu : MonoBehaviour
     //The pausemenu in the form of a gameobject, that is false and then becomes active when clicking on the pause-button.
     public GameObject pauseMenuUI;
 
+    private GameController gameController;
+    void Start()
+    {
+        
+        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        if (gameControllerObject != null)
+        {
+            gameController = gameControllerObject.GetComponent<GameController>();
+        }
+        if (gameController == null)
+        {
+            Debug.Log("Cannot find 'GameController' script");
+        }
 
-   public void Resume()
+    }
+
+    public void Resume()
     {
         //Disables the pausemenu gameobject again
         pauseMenuUI.SetActive(false);
@@ -50,6 +65,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         GameIsPaused = false;
+        gameController.StoreScore(gameController.score);
         StartCoroutine(ChangeLevel());
     }
 

@@ -16,12 +16,13 @@ public class GameController : MonoBehaviour
     public GameObject restartButton;
     public GameObject returnToMenuButton;
     public TextMeshProUGUI gameOverText;
-    public Text scoreText;
+    public TextMeshProUGUI scoreText;
+    //public Text scoreText;
     public Image[] uiHealthpoints;
     
     public bool isGame = false;
 
-    private int score;
+    public int score;
     private bool gameIsOver;
     //private bool restart;
 
@@ -121,7 +122,7 @@ public class GameController : MonoBehaviour
        return score;
     }
 
-    private void StoreScore(int score) //senare: ta in ett namn också
+    public void StoreScore(int score) //senare: ta in ett namn också
     {
         string name = "name";
         HighScoreController.instance.AddHighScoreEntry(score, name);

@@ -203,7 +203,7 @@ MonoBehaviour:
   playerCollisionExplosion: {fileID: 3849593792429817956, guid: 83b0dc4f394be294cb0c5b22ad157f3b,
     type: 3}
   destroyExplosionAfterFinished: 0.8
-  scoreValue: 20
+  scoreValue: 100
   dmgValue: -1
 --- !u!114 &8257889830653604365
 MonoBehaviour:
