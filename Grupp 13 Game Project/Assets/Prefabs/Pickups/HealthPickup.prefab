@@ -287,6 +287,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8644433baa786bf4c9227f41f86b5c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthParticles: {fileID: 7364893650200821071, guid: 2add2a6734dde43458791273bb44f45e,
+    type: 3}
+  destroyParticles: 2.5
 --- !u!114 &3951329661939212362
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4110,6 +4110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
         type: 3}
+      propertyPath: sounds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
       propertyPath: sounds.Array.data[0].group
       value: 
       objectReference: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff,
@@ -4117,6 +4122,84 @@ PrefabInstance:
     - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
         type: 3}
       propertyPath: sounds.Array.data[1].group
+      value: 
+      objectReference: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff,
+        type: 2}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[2].name
+      value: HealthUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa9a0ff67084c794aa1c7e2cb32dcfc0, type: 3}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[2].pitch
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[2].group
+      value: 
+      objectReference: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff,
+        type: 2}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: RangeUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa9a0ff67084c794aa1c7e2cb32dcfc0, type: 3}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[3].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[3].group
+      value: 
+      objectReference: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff,
+        type: 2}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[4].name
+      value: ShotUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[4].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: fa9a0ff67084c794aa1c7e2cb32dcfc0, type: 3}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[4].pitch
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975745816751350298, guid: 5ca50b44d0b4fa7499fb30b703c1d780,
+        type: 3}
+      propertyPath: sounds.Array.data[4].group
       value: 
       objectReference: {fileID: 24300002, guid: 9b3d900ae22d68e448c65afde9ba57ff,
         type: 2}

@@ -86,6 +86,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   increasedBy: 2
+  rangeParticles: {fileID: 7284775780403285877, guid: c788027b45451934a90f9f0ec6fa5238,
+    type: 3}
+  destroyParticles: 2.5
   powerUpDuration: 5
 --- !u!114 &1355931789563616906
 MonoBehaviour:
