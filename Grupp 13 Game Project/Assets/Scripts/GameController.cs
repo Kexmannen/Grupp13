@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class GameController : MonoBehaviour
     public GameObject hazard;   //tror ej vi behöver dessa längre då vi inte sköter spawning i det här scriptet längre
     public GameObject player;
 
-    public Text restartText;
-    public Text gameOverText;
+    public GameObject restartButton;
+    public GameObject returnToMenuButton;
+    public TextMeshProUGUI gameOverText;
     public Text scoreText;
     public Image[] uiHealthpoints;
     
@@ -21,7 +23,7 @@ public class GameController : MonoBehaviour
 
     private int score;
     private bool gameIsOver;
-    private bool restart;
+    //private bool restart;
 
     private void Awake()
     {
@@ -40,8 +42,12 @@ public class GameController : MonoBehaviour
     {
         isGame = true; //temporary, in future versions this should be set to true when samplescene is loaded 
         gameIsOver = false;
-        restart = false;
-        restartText.text = "";   //använda setActive istället? - Ja
+
+        //restart = false;
+        //restartText.text = "";   //använda setActive istället? - Ja
+        restartButton.SetActive(false);
+        returnToMenuButton.SetActive(false);
+
         gameOverText.text = ""; //använda setActive istället? - Ja
         score = 0;
         updateScore();
@@ -50,21 +56,31 @@ public class GameController : MonoBehaviour
 
     void Update()
     {
-        if (restart)
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                Scene currentScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(currentScene.name);
-            }
-        }
+        //if (restart)
+        //{
+            
+        //    //if (Input.GetKeyDown(KeyCode.R))
+        //    //{
+        //    //    Scene currentScene = SceneManager.GetActiveScene();
+        //    //    SceneManager.LoadScene(currentScene.name);
+        //    //}
+        //}
         if (gameIsOver)
         {
-            restartText.text = "Press 'R' for Restart";
-            restart = true;
+            //restartText.text = "Press 'R' for Restart";
+            restartButton.SetActive(true);
+            returnToMenuButton.SetActive(true);
+
+            //restart = true;
         }
     }
 
+    public void RestartPressed()
+    {
+        AudioManager.instance.Play("buttonPress");
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.name);
+    }
 
     public void addScore(int newScoreValue)
     {

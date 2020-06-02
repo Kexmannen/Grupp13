@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
     //The button that is displayed in the game
     public Button pause;
 
-    public int LevelToLoad;
+    public int LevelToLoad = 0;
     public int delay;
     public Animator anim;
     public Image blackFade;
