@@ -82,6 +82,8 @@ public class GameController : MonoBehaviour
         gameIsOver = true;
         //senare: fixa att användaren kan skriva in ett username för att spara highscore
         StoreScore(score);
+        AudioManager.instance.Play("Explosion_Big");
+        AudioManager.instance.Play("GameOver");
     }
     public void updateUiHealth(int currentHp)
     {

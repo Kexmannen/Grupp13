@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 8979594449450381519}
   m_Layer: 10
   m_Name: ShootingEnemy
-  m_TagString: Hazard
+  m_TagString: ShootingEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

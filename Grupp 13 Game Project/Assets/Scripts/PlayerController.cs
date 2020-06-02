@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(firedShot, rangeTime);
 
             }
-            // audio.Play(); //shooting audio
+            AudioManager.instance.Play("Shot");
         }
 
         //Movement by mouse stuff

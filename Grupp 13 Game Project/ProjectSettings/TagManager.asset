@@ -6,11 +6,13 @@ TagManager:
   tags:
   - Bolts
   - Boundary
-  - Hazard
   - Obstacle
   - Spawner
   - Pickup
   - UiController
+  - ShootingEnemy
+  - Hazard
+  - Enemy
   layers:
   - Default
   - TransparentFX
